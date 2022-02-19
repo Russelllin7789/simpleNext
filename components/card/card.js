@@ -37,7 +37,7 @@ const Card = (props) => {
             />
           </svg>
           <div className={classes.student_counts}>
-            {students_count} students
+            {students_count} 人一起學習
           </div>
         </div>
         <div className={classes.class_title}>{name}</div>
@@ -84,16 +84,16 @@ const Card = (props) => {
           ))}
         </div>
         <div className={classes.price_container}>
-          <div className={classes.special_sale}>{currency}$</div>
+          <div className={classes.special_sale}>77折 {currency}$</div>
           <div className={classes.special_sale}>{sale_price}</div>
           <div className={classes.original_price}>
-            List price {currency}${list_price}
+            定價 {currency}${list_price}
           </div>
         </div>
         <div className={classes.action_container}>
-          <button>Free trial</button>
+          <button>免費試用</button>
           <div className={classes.detail_container}>
-            Details
+            看更多
             <svg viewBox="0 0 448 512">
               <path
                 fill="currentColor"

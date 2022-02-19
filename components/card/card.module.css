@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   min-height: 390px;
+  height: 500px;
   width: 280px;
   margin-right: 15px;
 }
@@ -57,6 +58,7 @@
   margin-top: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
+  height: 75px;
 }
 
 .class_desc {
@@ -97,7 +99,7 @@
 
 .tag_container {
   font-size: 12px;
-  max-height: 58px;
+  height: 58px;
   overflow: hidden;
 }
 
@@ -134,6 +136,22 @@
 }
 
 .action_container {
+  display: flex;
+}
+
+.action_container button {
+  background: rgb(240, 100, 73);
+  margin-right: 15px;
+  font-size: 14px;
+  width: 100px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  flex: 1 1 0%;
+  cursor: pointer;
 }
 
 .detail_container {
@@ -149,6 +167,7 @@
   border-radius: 20px;
   border: none;
   flex: 1 1 0%;
+  cursor: pointer;
 }
 
 .detail_container svg {
