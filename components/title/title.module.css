@@ -1,5 +1,23 @@
+.all_container {
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+  margin-bottom: 15px;
+  display: flex;
+  -webkit-box-align: center;
+}
+
 .title_line {
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  border: 1px solid rgba(201, 210, 220, 0.7);
+  margin-block-start: 0.5rem;
+  margin-block-end: 0.5rem;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 
 .title {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
