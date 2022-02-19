@@ -3,3 +3,9 @@
   margin-right: 1.5rem;
   letter-spacing: 1px;
 }
+
+.card_container {
+  display: inline-flex;
+  padding: 4px 5px;
+  height: 100%;
+}
