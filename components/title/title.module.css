@@ -1,9 +1,9 @@
 .all_container {
+  display: flex;
   font-size: 24px;
   font-weight: bold;
   align-items: center;
-  margin-bottom: 15px;
-  display: flex;
+  margin-bottom: 8px;
   -webkit-box-align: center;
 }
 
