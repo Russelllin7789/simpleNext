@@ -2,9 +2,9 @@
 import Card from "../../components/card/Card";
 import Title from "../../components/title/title";
 import classes from "./demo.module.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
-const ORIGIN_CLASS = [
+const ORIGINAL_CLASS = [
   {
     id: "picked_product_flash_sale",
     type: "picked_product_list",
@@ -99,11 +99,8 @@ const ORIGIN_CLASS = [
   },
 ];
 
-const saleableClasses = ORIGIN_CLASS[0].attributes.custom.filter(
-  (item) => item.type === "saleable_product"
-);
-
-const HomePage = () => {
+const HomePage = (props) => {
+  // const [originalClass, setOriginalClass] = useState([])
   const scrollRef = useRef();
 
   const scrollLeft = () => {
@@ -134,7 +131,7 @@ const HomePage = () => {
           <div className={classes.card_container}>
             <div className={classes.scroll} ref={scrollRef}>
               <div className={classes.scroll_container}>
-                {saleableClasses.map((renderedClass) => (
+                {props.saleableClasses.map((renderedClass) => (
                   <Card
                     key={renderedClass.id}
                     singleClass={renderedClass.attributes}
@@ -159,9 +156,30 @@ const HomePage = () => {
   );
 };
 
-// TODO: prepare for calling API
-// export const getStaticProps() {
+export async function getStaticProps() {
+  // TODO: fetch classes from API
+  // const endPointDomain = 'https://backend-domain.com/API/'
 
-// }
+  // const response = await fetch(`${endPointDomain}/products/recommend/:recommendation_id`, {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // });
+
+  // const data = await response.json()
+  // const { data: ORIGINAL_CLASS } = data
+  // setOriginalClass(ORIGINAL_CLASS);
+
+  const saleableClasses = ORIGINAL_CLASS[0].attributes.custom.filter(
+    (item) => item.type === "saleable_product"
+  );
+
+  return {
+    props: {
+      saleableClasses: saleableClasses,
+    },
+  };
+}
 
 export default HomePage;
