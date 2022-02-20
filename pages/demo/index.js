@@ -1,8 +1,10 @@
 // domain.com/demo
+import { useRef, useState } from "react";
+import Head from "next/head";
+
 import Card from "../../components/card/Card";
 import Title from "../../components/title/title";
 import classes from "./demo.module.css";
-import { useRef, useState } from "react";
 
 const ORIGINAL_CLASS = [
   {
@@ -113,6 +115,13 @@ const HomePage = (props) => {
 
   return (
     <section className={classes.all_container}>
+      <Head>
+        <title>Classes for TOEIC</title>
+        <meta
+          name="description"
+          content="All the classes you need for getting a high TOEIC score!"
+        />
+      </Head>
       <div className={classes.title_container}>
         <Title />
       </div>
@@ -156,20 +165,23 @@ const HomePage = (props) => {
   );
 };
 
+const fetchRecommendedClass = async (id) => {
+  const endPointDomain = "https://backend-domain.com/API/";
+  const response = await fetch(`${endPointDomain}/products/recommend/${id}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+  const { data: ORIGINAL_CLASS } = data;
+  setOriginalClass(ORIGINAL_CLASS);
+};
+
 export async function getStaticProps() {
   // TODO: fetch classes from API
-  // const endPointDomain = 'https://backend-domain.com/API/'
-
-  // const response = await fetch(`${endPointDomain}/products/recommend/:recommendation_id`, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   }
-  // });
-
-  // const data = await response.json()
-  // const { data: ORIGINAL_CLASS } = data
-  // setOriginalClass(ORIGINAL_CLASS);
+  // fetchRecommendedClass(id)
 
   const saleableClasses = ORIGINAL_CLASS[0].attributes.custom.filter(
     (item) => item.type === "saleable_product"
