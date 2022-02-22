@@ -128,6 +128,7 @@ const HomePage = (props) => {
       <div className={classes.all_card_container}>
         <div>
           <svg
+            role="leftSvg"
             className={classes.card_left}
             viewBox="0 0 320 512"
             onClick={scrollLeft}
@@ -138,7 +139,11 @@ const HomePage = (props) => {
             />
           </svg>
           <div className={classes.card_container}>
-            <div className={classes.scroll} ref={scrollRef}>
+            <div
+              className={classes.scroll}
+              ref={scrollRef}
+              role="scrollContainer"
+            >
               <div className={classes.scroll_container}>
                 {props.saleableClasses.map((renderedClass) => (
                   <Card
@@ -150,6 +155,7 @@ const HomePage = (props) => {
             </div>
           </div>
           <svg
+            role="rightSvg"
             className={classes.card_right}
             viewBox="0 0 320 512"
             onClick={scrollRight}
